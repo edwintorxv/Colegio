@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:fragment xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:h="http://xmlns.jcp.org/jsf/html"
+             xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+             xmlns:jsf="http://xmlns.jcp.org/jsf">
+    <h:body>
+        <header>
+            <div class="contenedor">
+                <h1 style="letter-spacing: 1.5px;">SIGESDOC</h1>
+                <input type="checkbox" id="menu-bar"></input>
+                <label class="icon-menu" for="menu-bar"></label>
+<!--                <nav class="menu">
+                    <a href="#">
+                        Usuario: 
+                        #{controllerSesion.usuario.nombre} 
+                        #{controllerSesion.usuario.apellido}
+                    </a>
+                    <a href="#">
+                        Tipo usuario: 
+                        #{controllerSesion.usuario.fkRolSistema.nombreRol} 
+                    </a>
+                    <a href="../seguridad/administrador.xhtml" class="icon-home">Inicio</a>
+                    <h:form prependId="false">
+                        <a href="#" class="icon-logout" jsf:actionListener="#{controllerSesion.finalizarSesion()}">Salida</a>
+                    </h:form>
+                </nav>-->
+            </div>
+        </header>
+    </h:body>
+</ui:fragment>
+

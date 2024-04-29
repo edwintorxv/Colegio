@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:fragment xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:h="http://xmlns.jcp.org/jsf/html"
+             xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+             xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <ui:insert name="menuIzquierda">
+        <input type="checkbox" id="menuVertical-bar"></input>
+        <label class="validaMenuVertical" for="menuVertical-bar">Menú administrador<i style="float: right;" class="icon-menu"></i></label>
+        <div class="contenedorMenu menuScroll">
+            <ul class="menuVertical">
+                <li class="dropdown">
+                    <a href="" class="icon icon-documents" data-toggle="dropdown">&nbsp;Alumnos</a>
+                    <ul class="dropdown-menu forAnimate" role="menu">
+                        <li><a href="#{request.contextPath}/estudiante/crearAlumno.xhtml" target="blanc" class="letras" style="font-size: 100%;">Crear estudiante</a></li>
+                        <li><a href="#{request.contextPath}/estudiante/listadoEstudiante.xhtml" target="blanc" class="letras" style="font-size: 100%;">Listado estudiantes</a></li>
+                        <li><a href="http://localhost:8080/Colegio/api/estudiantes/5" target="blanc" class="letras" style="font-size: 100%;">Listado Service</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </ui:insert>
+</ui:fragment>
+

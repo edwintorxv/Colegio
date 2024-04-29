@@ -1,0 +1,289 @@
+@font-face{
+    font-family: Ubuntu;
+    src:url(../fonts/fontBody/Ubuntu-Regular.ttf);
+}
+*{
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+    font-family: Ubuntu;
+}
+
+@font-face{
+    font-family: Ubuntu;
+    src:url(../fonts/fontBody/Ubuntu-Regular.ttf);
+}
+*{
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+    font-family: Ubuntu;
+}
+
+.contenedorPrincipal{
+    background-image:  url(../imgs/fachadaColegio.jpg);
+    width: 100%;
+    height: 1000px;
+    background-size: 100%;
+}
+
+/*Inicio estilos header*/
+header{
+    width: 100%;
+    height: 50px;
+    background: #CFCDCC;
+    color: #6E6E6E;
+    font-family: Ubuntu;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.contenedor{
+    width: 98%;
+    margin: auto;
+}
+
+#menu-bar{
+    display: none;
+}
+
+h1{
+    float:left;
+    margin: 6px 0;
+}
+
+header label {
+    float: right;
+    font-size: 28px;
+    margin: 6px 0;
+    cursor: pointer;
+}
+
+.menu{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background: #D8D8D8;
+    top: 50px;
+    left: 0;
+    transition: 0.7s;
+    transform: translateX(-100%);
+}
+
+header .contenedor{
+    display: table;
+}
+
+.menu a{
+    display: block;
+    font-size: 18px;
+    color: #6E6E6E;
+    height: 50px;
+    padding: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+}
+
+.menu a:hover{
+    background: rgba(255,255,255,0.3);
+    text-decoration: none;
+}
+
+#menu-bar:checked ~ .menu{
+    transform: translateX(0);
+}
+
+/*Final estilos header*/
+
+/*Inicio estilos menu*/
+.contenedorMenu{
+    width: 100%;
+    float:left;
+    font-family: Ubuntu;
+    cursor: pointer;
+    margin-top: 103px;
+    transform: translateX(-100%);
+    transition: 0.7s;
+    position: fixed;
+    z-index: 900;
+}
+
+.validaMenuVertical{
+    padding: 15px 10px;
+    position: absolute;
+    width: 100%;
+    background: #D8D8D8;
+    left: 0;
+    transition: 0.7s;
+    font-family: Ubuntu;
+}
+
+#menuVertical-bar{
+    display: none;
+}
+
+#menuVertical-bar:checked ~ .contenedorMenu{
+    transform: translateX(0);
+    transition: 0.7s;
+}
+
+label{
+    margin-top: 50px;
+    cursor: pointer;
+    float: right;
+    font-size: 20px;
+}
+.contenedorMenu .menuVertical{
+    width: 100%;
+    height: 400px;
+}
+
+.contenedorMenu li a{
+    display: block;
+    padding: 17px 20px;
+    background: #CFCDCC;
+    font-family: Ubuntu;
+}
+
+.contenedorMenu li{
+    font-size: 15px;
+    color: #8A8B8A;
+}
+
+.contenedorMenu .menuVertical .icono{
+    line-height: 16px;
+}
+
+.contenedorMenu .menuVertical ul{
+    display: none;
+}
+
+.contenedorMenu .menuVertical ul li a{
+    background: #424242;
+    color:#FFF;
+}
+
+.contenedorMenu .menuVertical ul li a:hover{
+    background: #4cae4c;
+    color:#FFF;
+}
+
+.contenedorMenu .menuVertical .icono.derecha{
+    float:right;
+    margin-left: 10px;
+}
+
+.contenedorMenu .menuVertical .icono.izquierda{
+    float:left;
+    margin-right: 10px;
+}
+
+.contenedorMenu a{
+    display: block;
+    color:#424242;
+    padding: 10px;
+    font-family: Sans-serif;
+    font-size: 1.2em;
+}
+
+.contenedorMenu li{
+    border: 1px solid #D9D9D9;
+    border-radius: 5px;
+    font-family: Ubuntu;
+    width: 200px;
+}
+
+.contenedorMenu li a:hover{
+    background: #B9B9B9;
+    color:#000;
+    transition: 0.3s;
+    border-radius: 5px;
+    border-left: 2px solid #FFF;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.contenedorMenu .menuVertical ul li:hover ul{
+    display: block;
+    position: absolute;
+}
+
+.menuScroll{
+    display: block;
+    max-height: 750px;
+    overflow-y: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+/*Final estilos menu*/
+
+
+/*Inicio estilos contenedor cetral*/
+.contenedorCentral{
+    width: 100%;
+    height: 70%;
+    /*border: 10px solid #000;*/
+    margin-top: 103px;
+    float: left;
+}
+
+.imagenLogo{
+    width: 80%;
+    height: 50%;
+    margin-left: 10%;
+    margin-top: 10%;
+}
+/*Final estilos contenedor cetral*/
+
+
+@media(min-width: 1024px){
+
+    .contenedorMenu{
+        width: 20%;
+        float:left;
+        font-family: Ubuntu;
+        cursor: pointer;
+        margin-top: 60px;
+        transform: translateX(0);
+    }
+
+    label{
+        display: none;
+    }
+
+    .menu{
+        position: static;
+        width: auto;
+        height: auto;
+        transform: translateX(0);
+        background: #CFCDCC;
+        float: right;
+        display: flex;
+        border-bottom: 0;
+    }
+
+    header label{
+        display: none;
+    }
+
+    .contenedorCentral{
+        width: 75%;
+        height: 94%;
+        /*border: 10px solid #000;*/
+        margin-top: 60px;
+        float: right;
+    }
+
+    .imagenLogo{
+        width: 70%;
+        height: 40%;
+        margin-left: 10%;
+        margin-top: 0;
+        background: rgba(188,188,188,0.8);
+    }
+}

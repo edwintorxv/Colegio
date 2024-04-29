@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<ui:composition template="/template/template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:jsf="http://xmlns.jcp.org/jsf"
+                xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+    <ui:define name="titulo">Editar estudiante</ui:define>
+    <ui:define name="contenido">
+        <div class="contenedorPrincipal">
+            <div style="background: rgba(185,185,185,0.3); height: 100%;">
+                <div class="contenedorCentral">
+                    <div class="contenedorFormulario">
+                        <h:form prependId="false" id="formEstudiante">
+                            <div class="col-md-12 card">
+                                <div class="col-md-12" align="center">
+                                    <h3 style="color: #FFF;">Editar datos estudiante</h3>
+                                    <legend></legend>
+                                </div>
+                                <div class="col-md-12 text-center" style="font-size: 18px;">
+                                    <h:message for="formEstudiante"
+                                               class="col-md-12"
+                                               showSummary="true"
+                                               errorStyle="color: red; background: rgba(255,255,255,0.8);"
+                                               infoClass="alert-success"/>
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <div class="col-md-6">
+                                        <h:outputText value="Nombres"
+                                                      style="color: #FFF; 
+                                                      float:left;
+                                                      font-size: 17px;"/>
+                                        <h:inputText class="form-control"
+                                                     style="font-size: 20px"
+                                                     value="#{estudianteController.estudiante.nombre}"/>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h:outputText value="Apellidos"
+                                                      style="color: #FFF; 
+                                                      float:left;
+                                                      font-size: 17px;"/>
+                                        <h:inputText class="form-control"
+                                                     style="font-size: 20px"
+                                                     value="#{estudianteController.estudiante.apellido}"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <div class="col-md-6">
+                                        <h:outputText value="Identficación"
+                                                      style="color: #FFF; 
+                                                      float:left;
+                                                      font-size: 17px;"/>
+                                        <h:inputText class="form-control"
+                                                     style="font-size: 20px"
+                                                     a:type="number"
+                                                     value="#{estudianteController.estudiante.numeroIdentificacion}"/>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h:outputText value="Cusrso"
+                                                      style="color: #FFF; 
+                                                      float:left;
+                                                      font-size: 17px;"/>
+                                        <h:selectOneMenu class="form-control"
+                                                         style="font-size: 15px"
+                                                         value="#{estudianteController.estudiante.fkCursoId}"
+                                                         converter="cursoConverter">
+                                            <f:selectItems value="#{cursoController.lstCurso}"
+                                                           var="lstCurso"
+                                                           itemLabel="#{lstCurso.nombre}">
+                                            </f:selectItems>
+                                        </h:selectOneMenu>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <div class="col-md-6">
+                                        <h:outputText value="Sede"
+                                                      style="color: #FFF; 
+                                                      float:left;
+                                                      font-size: 17px;"/>
+                                        <h:selectOneMenu class="form-control"
+                                                         style="font-size: 15px"
+                                                         value="#{estudianteController.estudiante.fkSedeId}"
+                                                         converter="sedeConverter">
+                                            <f:selectItems value="#{sedeController.lstSede}"
+                                                           var="lstSede"
+                                                           itemLabel="#{lstSede.nombre}">
+                                            </f:selectItems>
+                                        </h:selectOneMenu>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h:outputText value="Ciudad de resindencia"
+                                                      style="color: #FFF; 
+                                                      float:left;
+                                                      font-size: 17px;"/>
+                                        <h:selectOneMenu class="form-control"
+                                                         style="font-size: 15px"
+                                                         converter="departamentoConverter"
+                                                         value="#{estudianteController.estudiante.fkDepartamentoCod}">
+                                            <f:selectItems value="#{departamentoController.lstDepartamento}"
+                                                           var="lstDepartamento"
+                                                           itemLabel="#{lstDepartamento.nombre}"/>
+                                        </h:selectOneMenu>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 form-group" align="center">
+                                    <div class="col-md-12">
+                                        <button class="btn btn-warning btn-block"
+                                                value="g"
+                                                jsf:action="#{estudianteController.guardarCambios()}">Guardar cambios</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h:outputScript library="js" name="abrirMenu.js"/>
+    </ui:define>
+</ui:composition>

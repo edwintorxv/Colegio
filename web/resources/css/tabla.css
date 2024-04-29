@@ -1,0 +1,147 @@
+*{
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+/*Inicio estilos tabla datos General*/
+
+.contenedorTabla{
+    width: 100%;
+    height: 70%;
+    /*border: 100px solid #000;*/
+    /*background: rgba(0,0,0,0.2);*/
+}
+
+.contenedorTablaSolicitud{
+    width: 100%;
+    height: 70%;
+}
+
+.estilosEncabezado{
+    background: #4cae4c;
+    color: #FFF;
+}
+
+.estilosCuerpo{
+    background: #FFF;
+}
+
+.scrollTabla {
+    display: block;
+    max-height: 550px;
+    max-width: 100%;
+    overflow-y: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+/*Final estilos tabla datos General*/
+
+@media(min-width: 1024px){
+    .contenedorTabla{
+        width: 100%;
+        height: 50%;
+        /*border: 1px solid #000;*/
+        margin-left: 2.5%;
+    }
+    
+    .contenedorTablaSolicitud{
+        width: 100%;
+        height: 50%;
+        margin-left: 2.5%;
+        margin-top: 15%;
+    }
+    
+    .scrollTabla {
+        display: block;
+        max-height: 550px;
+        overflow-y: auto;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+    
+    .contenedorTablaUsuario{
+        width: 100%;
+        height: 50%;
+        margin-left: 5%;
+        margin-top: 15%;
+    }
+    
+    .contenedorTablaBodega{
+        width: 100%;
+        height: 50%;
+        margin-left: 4%;
+        margin-top: 15%;
+    }
+}
+
+@media(max-width: 1024px){
+    .contenedorTabla{
+        width: 90%;
+        height: 50%;
+        /*border: 1px solid #000;*/
+        margin-left: 2.5%;
+    }
+    
+    .contenedorTablaSolicitud{
+        width: 100%;
+        height: 50%;
+        margin-left: 17%;
+        margin-top: 15%;
+    }
+    
+    .scrollTabla {
+        display: block;
+        max-height: 550px;
+        overflow-y: auto;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+    
+    .contenedorTablaUsuario{
+        width: 100%;
+        height: 50%;
+        margin-left: 5%;
+        margin-top: 15%;
+    }
+    
+    .contenedorTablaBodega{
+        width: 100%;
+        height: 200%;
+        margin-left: 2.5%;
+        margin-top: 15%;
+    }
+}
+
+@media(max-width: 1440px){
+    .contenedorTabla{
+        width: 90%;
+        height: 50%;
+        /*border: 1px solid #000;*/
+        margin-left: 2.5%;
+    }
+    
+    .contenedorTablaSolicitud{
+        width: 90%;
+        margin-left: 2.5%;
+        margin-top: 15%;
+    }
+    
+    .scrollTabla {
+        display: block;
+        max-height: 650px;
+        overflow-y: auto;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+    
+    .contenedorTablaUsuario{
+        width: 95%;
+        height: 50%;
+        margin-left: 2.5%;
+        margin-top: 15%;
+    }
+    
+    .contenedorTablaBodega{
+        width: 100%;
+        height: 200%;
+        margin-top: 15%;
+    }
+}

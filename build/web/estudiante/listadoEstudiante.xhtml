@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="/template/template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:jsf="http://xmlns.jcp.org/jsf"
+                xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:define name="titulo">Busqueda de expedientes</ui:define>
+    <ui:define name='contenido'>
+        <div class="contenedorPrincipal">
+            <div style="background: rgba(185,185,185,0.3); height: 100%;">
+                <div class="contenedorCentral">
+                    <div class="contenedorFormularioExpediente">
+                        <h:form prependId="false" id="frmLstEstudiante">
+                            <div class="col-md-12">
+                                <div class="col-md-12" align="center">
+                                    <h3 style="color: #FFF;">Búsqueda de expedientes</h3>
+                                    <legend></legend>
+                                </div>
+                                <div class="text-center" style="font-size: 18px;">
+                                    <h:messages for="frmLstEstudiante"
+                                                class="col-md-12"
+                                                showSummary="true"
+                                                errorStyle="color: red; background: rgba(255,255,255,0.8);"/>
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <div class="col-md-3">
+                                        <h:outputText value="Cusrso"
+                                                      style="color: #FFF; 
+                                                      float:left;
+                                                      font-size: 17px;"/>
+                                        <h:selectOneMenu class="form-control"
+                                                         style="font-size: 15px"
+                                                         value="#{estudianteController.curso}"
+                                                         converter="cursoConverter">
+                                            <f:selectItems value="#{cursoController.lstCurso}"
+                                                           var="lstCurso"
+                                                           itemLabel="#{lstCurso.nombre}">
+                                            </f:selectItems>
+                                        </h:selectOneMenu>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <h:outputText value="Sede"
+                                                      style="color: #FFF; 
+                                                      float:left;
+                                                      font-size: 17px;"/>
+                                        <h:selectOneMenu class="form-control"
+                                                         style="font-size: 15px"
+                                                         value="#{estudianteController.sede}"
+                                                         converter="sedeConverter">
+                                            <f:selectItems value="#{sedeController.lstSede}"
+                                                           var="lstSede"
+                                                           itemLabel="#{lstSede.nombre}">
+                                            </f:selectItems>
+                                        </h:selectOneMenu>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <h:outputText value="Ciudad de resindencia"
+                                                      style="color: #FFF; 
+                                                      float:left;
+                                                      font-size: 17px;"/>
+                                        <h:selectOneMenu class="form-control"
+                                                         style="font-size: 15px"
+                                                         converter="departamentoConverter"
+                                                         value="#{estudianteController.departamento}">
+                                            <f:selectItems value="#{departamentoController.lstDepartamento}"
+                                                           var="lstDepartamento"
+                                                           itemLabel="#{lstDepartamento.nombre}"/>
+                                        </h:selectOneMenu>
+                                    </div>
+                                    <div class="col-md-1" style="padding-top: 3%;">
+                                        <h:commandLink class="btn btn-primary icon icon-search"
+                                                       title="Buscar">
+                                            <f:ajax event="click"
+                                                    execute="@form"
+                                                    render=":lstBusqueda"
+                                                    listener="#{estudianteController.crearReporte()}"/>
+                                        </h:commandLink>
+                                    </div>
+                                    <div class="col-md-1" style="padding-top: 3%;">
+                                        <button class="btn btn-success icon-file-excel"
+                                                jsf:actionListener="#{estudianteController.exportarFormatoAsistencia()}">
+
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </h:form>
+                    </div>
+                    <div class="contenedorTabla">
+                        <h:form prependId="false" id="lstBusqueda">
+                            <table class="table table-hover scrollTabla nowrap">
+                                <thead class="estilosEncabezado">
+                                    <tr>
+                                        <th style="text-align: center;" >Nombres</th>
+                                        <th style="text-align: center;">Apellidos</th>
+                                        <th style="text-align: center;">Número identificación</th>
+                                        <th style="text-align: center;">Sede</th>
+                                        <th style="text-align: center;">Curso</th>
+                                        <th style="text-align: center;">Ciudad de residencia</th>
+                                        <th style="text-align: center;">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="estilosCuerpo">
+                                    <c:forEach items="#{estudianteController.lstEstudiante}" var="lstEstudiante">
+                                        <tr>
+                                            <td><h:outputText value="#{lstEstudiante.nombre}"/></td>
+                                            <td><h:outputText value="#{lstEstudiante.apellido}"/></td>
+                                            <td><h:outputText value="#{lstEstudiante.numeroIdentificacion}"/></td>
+                                            <td><h:outputText value="#{lstEstudiante.fkSedeId.nombre}"></h:outputText></td>
+                                            <td><h:outputText value="#{lstEstudiante.fkCursoId.nombre}"></h:outputText></td>
+                                            <td><h:outputText value="#{lstEstudiante.fkDepartamentoCod.nombre}"></h:outputText></td>
+                                            <td>
+                                                <button class="btn btn-warning icon icon-pencil"
+                                                        jsf:action="#{estudianteController.alistaEditarEstudiante(lstEstudiante)}"></button>
+
+                                                <button class="btn btn-danger icon icon-trash" jsf:action="#{estudianteController.elimniarEstudiante(lstEstudiante)}"/>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+                                </tbody>
+                            </table>
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h:outputScript library="js" name="abrirMenu.js"/>
+    </ui:define>
+</ui:composition>
+

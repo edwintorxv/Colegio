@@ -63,15 +63,15 @@ public class EstudianteController implements Serializable {
 
     public void crearEstudiante() {
         FacesContext fc = FacesContext.getCurrentInstance();
-        
-        this.lstEstudiante  = this.estudianteFacadeLocal.buscarPorIdentificacion(identificacion);
-        
+
+        this.lstEstudiante = this.estudianteFacadeLocal.buscarPorIdentificacion(identificacion);
+
         if (this.lstEstudiante.size() > 0) {
             FacesMessage nombre = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Ya existe el estudiante", "");
             fc.addMessage("formEstudiante", nombre);
             return;
         }
-        
+
         if (this.estudiante.getNombre().isEmpty() && this.estudiante.getNombre().equals("")) {
             FacesMessage nombre = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Indique el nombre del estudiante", "");
             fc.addMessage("formEstudiante", nombre);
@@ -84,12 +84,12 @@ public class EstudianteController implements Serializable {
             return;
         }
 
-        if (this.estudiante.getNumeroIdentificacion().isEmpty() && this.estudiante.getNumeroIdentificacion().equals("")) {
+        if (this.identificacion.isEmpty() && this.identificacion.equals("")) {
             FacesMessage identificacion = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Indique el apellido del estudiante", "");
             fc.addMessage("formEstudiante", identificacion);
             return;
         }
-        
+
         this.estudiante.setNumeroIdentificacion(identificacion);
         this.estudianteFacadeLocal.create(estudiante);
         FacesMessage creado = new FacesMessage(FacesMessage.SEVERITY_INFO, "Estudiante creado", "");
@@ -119,11 +119,11 @@ public class EstudianteController implements Serializable {
                 String archivo = "controlAsiatencia.csv";
                 String ruta = "C:\\Users\\edwin\\OneDrive\\Documents";
                 File directorio = new File(ruta + "//InformeActividades//");
-                
+
                 if (!directorio.exists()) {
                     directorio.mkdir();
                 }
-                
+
                 try (FileWriter controlAsistencia = new FileWriter(directorio + "//" + archivo)) {
                     controlAsistencia.write("Nombre;Apellidos;"
                             + "Ciudad;Asistio\n");
